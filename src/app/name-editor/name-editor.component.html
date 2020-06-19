@@ -1,9 +1,12 @@
-<label for="">
-  Name:<input type="text" [formControl]="name">
-</label>
+<nz-card nz-row>
+  <div nz-col nzSpan="10">
+    Name:<input nz-input type="text" [formControl]="name">
+  </div>
+  <div nz-col nzSpan="10">
+    Value: {{name.value}}
+  </div>
+  <div nz-col nzSpan="4">
+    <button nz-button nzType="primary" (click)="updateName()">Update name</button>
+  </div>
+</nz-card>
 
-<p>Value: {{name.value}}</p>
-
-<p>
-  <button (click)="updateName()">Update name</button>
-</p>

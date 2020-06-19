@@ -1,5 +1,78 @@
-<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-  <label>First Name: <input type="text" formControlName="firstName"></label>
-  <label>Last Name: <input type="text" formControlName="lastName"></label>
-  <button nz-button nzType="primary" type="submit" [disabled]="!profileForm.valid">Submit</button>
-</form>
+<nz-card>
+  <form nz-form [nzLayout]="'horizontal'" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div nz-row>
+      <h2 nz-col [nzSpan]="8" [nzOffset]="4">Personal</h2>
+    </div>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="4">First Name</nz-form-label>
+      <nz-form-control [nzSpan]="8">
+        <input nz-input type="text" formControlName="firstName">
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="4">Last Name</nz-form-label>
+      <nz-form-control [nzSpan]="8">
+        <input nz-input type="text" formControlName="lastName">
+      </nz-form-control>
+    </nz-form-item>
+
+    <div formGroupName="address">
+      <div nz-row>
+        <h2 nz-col [nzSpan]="8" [nzOffset]="4">Address</h2>
+      </div>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="4">Street</nz-form-label>
+        <nz-form-control [nzSpan]="8">
+          <input type="text" formControlName="street" nz-input>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="4">City</nz-form-label>
+        <nz-form-control [nzSpan]="8">
+          <input type="text" formControlName="city" nz-input>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="4">State</nz-form-label>
+        <nz-form-control [nzSpan]="8">
+          <input type="text" formControlName="state" nz-input>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="4">Zip Code:</nz-form-label>
+        <nz-form-control [nzSpan]="8">
+          <input type="content" formControlName="zip" nz-input>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+
+    <div formArrayName="aliases">
+      <div nz-row>
+        <h2 nz-col [nzSpan]="8" [nzOffset]="4">Aliases</h2>
+      </div>
+      <nz-form-item>
+        <nz-form-control [nzSpan]="8" [nzOffset]="4">
+          <button nz-button nzType="default" (click)="addAlias($event)">Add Alias</button>
+        </nz-form-control>
+      </nz-form-item>
+      <div *ngFor="let alias of aliases.controls; let i=index">
+        <nz-form-item>
+          <nz-form-label [nzSpan]="4">Alias:</nz-form-label>
+          <nz-form-control [nzSpan]="8">
+            <input type="text" [formControlName]="i" nz-input>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+    </div>
+
+    <nz-form-item>
+      <nz-form-control [nzSpan]="8" [nzOffset]="4">
+        <button nz-button nzType="primary" [disabled]="!profileForm.valid">Submit</button>
+        <button nz-button nzType="default" (click)="updateProfile($event)" style="margin-left: 20px;">Update Profile</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+  <p>
+    Form Status: {{profileForm.status}}
+  </p>
+</nz-card>
