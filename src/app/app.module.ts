@@ -12,6 +12,7 @@ import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { NzButtonModule, NzCardModule, NzFormModule, NzInputModule } from 'ng-zorro-antd'; // 引入antd
+import { HeroFormComponent } from './hero-form/hero-form.component';
 
 registerLocaleData(en);
 
@@ -19,11 +20,13 @@ registerLocaleData(en);
    declarations: [
       AppComponent,
       NameEditorComponent,
-      ProfileEditorComponent
+      ProfileEditorComponent,
+      HeroFormComponent
    ],
    imports: [
       BrowserModule,
-      ReactiveFormsModule, // 响应式表单
+      ReactiveFormsModule,
+      // 响应式表单,模版驱动表单
       FormsModule,
       HttpClientModule,
       BrowserAnimationsModule,
@@ -32,7 +35,7 @@ registerLocaleData(en);
       NzFormModule,
       NzInputModule
    ],
-   providers: [{ provide: NZ_I18N, useValue: en_US }],
+   providers: [],
    bootstrap: [
       AppComponent
    ]
