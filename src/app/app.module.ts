@@ -13,6 +13,9 @@ import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { NzButtonModule, NzCardModule, NzFormModule, NzInputModule } from 'ng-zorro-antd'; // 引入antd
 import { HeroFormComponent } from './hero-form/hero-form.component';
+import { HeroFormTemplateComponent } from './template/hero-form-template/hero-form-template.component';
+import { HeroFormReactiveComponent } from './reactive/hero-form-reactive/hero-form-reactive.component';
+
 
 registerLocaleData(en);
 
@@ -21,7 +24,9 @@ registerLocaleData(en);
       AppComponent,
       NameEditorComponent,
       ProfileEditorComponent,
-      HeroFormComponent
+      HeroFormComponent,
+      HeroFormTemplateComponent,
+      HeroFormReactiveComponent
    ],
    imports: [
       BrowserModule,
