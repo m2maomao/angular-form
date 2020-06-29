@@ -15,6 +15,7 @@ import { NzButtonModule, NzCardModule, NzFormModule, NzInputModule } from 'ng-zo
 import { HeroFormComponent } from './hero-form/hero-form.component';
 import { HeroFormTemplateComponent } from './template/hero-form-template/hero-form-template.component';
 import { HeroFormReactiveComponent } from './reactive/hero-form-reactive/hero-form-reactive.component';
+import { ForbiddenNameDirective } from '../app/shared/forbidden-name.directive';
 
 
 registerLocaleData(en);
@@ -26,7 +27,8 @@ registerLocaleData(en);
       ProfileEditorComponent,
       HeroFormComponent,
       HeroFormTemplateComponent,
-      HeroFormReactiveComponent
+      HeroFormReactiveComponent,
+      ForbiddenNameDirective
    ],
    imports: [
       BrowserModule,

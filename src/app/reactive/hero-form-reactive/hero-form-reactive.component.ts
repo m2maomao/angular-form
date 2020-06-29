@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { forbiddenNameValidator } from 'src/app/shared/forbidden-name.directive';
 
 @Component({
   selector: 'app-hero-form-reactive',
@@ -15,15 +16,21 @@ export class HeroFormReactiveComponent implements OnInit {
   heroForm: FormGroup;
 
   ngOnInit(): void {
+    // this.heroForm = new FormGroup({
+    //   name: new FormControl(this.hero.name, [
+    //     Validators.required,
+    //     Validators.minLength(4),
+    //     forbiddenNameValidator(/bob/i)
+    //   ]),
+    //   alterEgo: new FormControl(this.hero.alterEgo),
+    //   power: new FormControl(this.hero.power, Validators.required)
+    // });
+
     this.heroForm = new FormGroup({
-      name: new FormControl(this.hero.name, [
-        Validators.required,
-        Validators.minLength(4),
-        // forbiddenNameValidator(/bob/i)
-      ]),
-      alterEgo: new FormControl(this.hero.alterEgo),
-      power: new FormControl(this.hero.power, Validators.required)
-    });
+      name: new FormControl(),
+      alterEgo: new FormControl(),
+      power: new FormControl()
+    }, {validators: identityRevealedValidator });
   }
 
   get name() { return this.heroForm.get('name'); }
