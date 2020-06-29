@@ -6,6 +6,9 @@
       <div *ngIf="name.errors.required">Name is required</div>
       <div *ngIf="name.errors.minlength">Name must be at least 4 chracters long.</div>
       <div *ngIf="name.errors.forbiddenName">Name cannot be Bob.</div>
+      <div *ngIf="heroForm.errors?.identityRevealed && (heroForm.touched || heroForm.dirty)" class="cross-validation-error-message alert alert-danger">
+        Name cannot match alter ego.
+      </div>
     </div>
   </form>
 </div>
